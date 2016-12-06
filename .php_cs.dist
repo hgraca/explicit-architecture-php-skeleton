@@ -1,0 +1,27 @@
+<?php
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@Symfony' => true,
+        'phpdoc_align' => false,
+        'phpdoc_summary' => false,
+        'concat_space' => ['spacing' => 'one'],
+        'no_multiline_whitespace_before_semicolons' => true,
+        'no_useless_else' => true,
+        'no_useless_return' => true,
+        'ordered_imports' => true,
+        'phpdoc_order' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'no_short_echo_tag' => true,
+    ])
+    ->setFinder(
+        PhpCsFixer\Finder::create()
+            ->exclude('bin')
+            ->exclude('node_modules')
+            ->exclude('spec')
+            ->exclude('tests/_data')
+            ->exclude('var')
+            ->exclude('vendor')
+            ->in(__DIR__)
+    )
+;

@@ -1,0 +1,13 @@
+build:
+    environment:
+        php:
+            version: 7.0.8
+            ini:
+                'date.timezone': 'Europe/Amsterdam'
+    tests:
+        override:
+            -
+                command: make coverage
+                coverage:
+                    file: coverage.clover.xml
+                    format: php-clover

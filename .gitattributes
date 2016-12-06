@@ -1,0 +1,12 @@
+/docs                export-ignore
+/tests               export-ignore
+/ci                  export-ignore
+/.gitattributes      export-ignore
+/.gitignore          export-ignore
+/.gitlab-ci.yml      export-ignore
+/.travis.yml         export-ignore
+/phpunit.xml         export-ignore
+/clover.xml          export-ignore
+/coverage.clover.xml export-ignore
+/.php_cs.cache       export-ignore
+/.scrutinizer.yml    export-ignore
