@@ -25,3 +25,15 @@ test:
 
 test-debug:
 	php -dzend_extension=xdebug.so bin/phpunit
+
+test-acceptance:
+	bin/phpunit --testsuite acceptance
+
+test-functional:
+	bin/phpunit --testsuite functional
+
+test-integration:
+	bin/phpunit --testsuite integration
+
+test-unit:
+	bin/phpunit --testsuite unit
