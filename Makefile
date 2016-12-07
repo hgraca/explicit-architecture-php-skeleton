@@ -22,6 +22,7 @@ cs-fix:
 
 test:
 	bin/phpunit
+	bin/humbug
 
 test-debug:
 	php -dzend_extension=xdebug.so bin/phpunit
@@ -31,6 +32,9 @@ test-acceptance:
 
 test-functional:
 	bin/phpunit --testsuite functional
+
+test-humbug:
+	bin/humbug
 
 test-integration:
 	bin/phpunit --testsuite integration

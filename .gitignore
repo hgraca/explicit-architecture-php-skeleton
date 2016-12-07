@@ -3,9 +3,10 @@
 bin
 /.php_cs.cache
 
-# Phpunit #
+# Tests #
 ############
 /coverage.clover.xml
+/.humbug.log
 
 # Composer #
 ############
