@@ -1,3 +1,26 @@
+# Autodetect text files
+* text=auto
+
+# Force the following filetypes to have unix eols, so Windows does not break them
+*.* text eol=lf
+
+# Force these files to be treated as binaries
+*.7z binary
+*.doc binary
+*.eot binary
+*.gif binary
+*.jpg binary
+*.pdf binary
+*.png binary
+*.so binary
+*.svg binary
+*.tar.gz binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+
+# do not transfer these files when doing a composer install (the dist version of this package)
 /docs                export-ignore
 /tests               export-ignore
 /ci                  export-ignore
@@ -10,3 +33,5 @@
 /coverage.clover.xml export-ignore
 /.php_cs.cache       export-ignore
 /.scrutinizer.yml    export-ignore
+/.humbug.log         export-ignore
+/humbug.json.dist    export-ignore

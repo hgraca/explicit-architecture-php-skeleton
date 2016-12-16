@@ -41,6 +41,7 @@ make test-acceptance
 make test-functional
 make test-integration
 make test-unit
+make test-humbug
 ```
 To run the tests in debug mode run:
 ```bash

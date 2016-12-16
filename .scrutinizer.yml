@@ -11,3 +11,7 @@ build:
                 coverage:
                     file: coverage.clover.xml
                     format: php-clover
+checks:
+    php:
+        code_rating: true
+        duplication: true
