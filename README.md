@@ -35,7 +35,9 @@ Go through the README.md and adapt to your situation
     - **shared-kernel** (_application and domain code shared among all bounded contexts_)
     - **std-lib**  (_functions and/or classes to be used as if they were part of the language itself_)
 - **src**
-    - **Core** (_the main application code_)
+    - **Core** (_the application core_)
+        - **Component** (_the application components/bounded contexts_)
+        - **Port** (_the ports, to be implemented by the infrastructure adapters_)
     - **Infrastructure** (_the adapters for the infrastructure code_)
     - **UI** (_the user facing applications, controllers, views and related code units_)
 - **storage** (_artifacts needed for running the application in production_)
