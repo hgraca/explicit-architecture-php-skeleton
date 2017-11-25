@@ -8,7 +8,7 @@
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/hgraca/php-lib-name.svg?style=flat-square)](https://scrutinizer-ci.com/g/hgraca/php-lib-name/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/hgraca/php-lib-name.svg?style=flat-square)](https://scrutinizer-ci.com/g/hgraca/php-lib-name)
 
-<lib-name-description>
+\<lib-name-description\>
 
 A short description of what is the project. This should explain **what** the project is.
 A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
@@ -21,7 +21,7 @@ A short explanation of how to use the project. This should explain **how** the p
 
 Replace:
 
-- '<lib-name-description>' => A description for the library
+- '\<lib-name-description\>' => A description for the library
 - lib-name => The library name
 - LibName => The library namespace
 
