@@ -1,6 +1,5 @@
 # Project #
 ############
-bin
 /.php_cs.cache
 
 # Tests #

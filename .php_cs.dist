@@ -1,27 +1,33 @@
 <?php
 
 return PhpCsFixer\Config::create()
-    ->setRules([
-        '@Symfony' => true,
-        'phpdoc_align' => false,
-        'phpdoc_summary' => false,
-        'concat_space' => ['spacing' => 'one'],
-        'no_multiline_whitespace_before_semicolons' => true,
-        'no_useless_else' => true,
-        'no_useless_return' => true,
-        'ordered_imports' => true,
-        'phpdoc_order' => true,
-        'array_syntax' => ['syntax' => 'short'],
-        'no_short_echo_tag' => true,
-    ])
+    ->setRiskyAllowed(true)
+    ->setRules(
+        [
+            '@Symfony' => true,
+            '@PHP71Migration:risky' => true,
+            'phpdoc_align' => false,
+            'phpdoc_summary' => false,
+            'concat_space' => ['spacing' => 'one'],
+            'no_multiline_whitespace_before_semicolons' => true,
+            'no_useless_else' => true,
+            'no_useless_return' => true,
+            'ordered_imports' => true,
+            'phpdoc_order' => true,
+            'array_syntax' => ['syntax' => 'short'],
+            'no_short_echo_tag' => true,
+            'pre_increment' => false,
+            'return_type_declaration' => ['space_before' => 'none'],
+            'void_return' => true,
+            'yoda_style' => [
+                'equal' => false,
+                'identical' => false,
+            ],
+        ]
+    )
     ->setFinder(
         PhpCsFixer\Finder::create()
-            ->exclude('bin')
-            ->exclude('node_modules')
-            ->exclude('spec')
-            ->exclude('tests/_data')
-            ->exclude('var')
-            ->exclude('vendor')
-            ->in(__DIR__)
-    )
-;
+            ->in(['src', 'tests', 'lib'])
+            ->exclude([])
+            ->name('*.php')
+    );

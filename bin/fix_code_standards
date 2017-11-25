@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+$rootDir = __DIR__ . '/..';
+$argumentList = $argv;
+unset($argumentList[0]);
+$returnVal = 0;
+
+$env = getenv('ENV') ?: 'dev';
+$command = 'php vendor/bin/php-cs-fixer fix --verbose ' . implode(' ', $argumentList);
+switch ($env) {
+    case 'dev':
+        system(
+            "docker-compose -f $rootDir/storage/container/docker-compose.yml run --no-deps --rm app " . $command,
+            $returnVal
+        );
+        break;
+    default:
+        system($command, $returnVal);
+}
+
+exit($returnVal);

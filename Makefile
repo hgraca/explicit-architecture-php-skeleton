@@ -8,36 +8,27 @@ help:
 	@echo "Available commands:"
 	@grep '^[^#[:space:]].*:' Makefile | grep -v '^default' | grep -v '^_' | sed 's/://' | xargs -n 1 echo ' -'
 
-composer-install:
-	composer install
-
-composer-update:
-	composer update
+build-container:
+	docker build -t hgraca/explicit-architecture:app.php_7_1 -f  ./storage/container/app.dockerfile ./storage/container
+	docker push hgraca/explicit-architecture:app.php_7_1
 
 coverage:
-	php -dzend_extension=xdebug.so bin/phpunit --coverage-text --coverage-clover=coverage.clover.xml
+	bin/fix_code_standards --dry-run
+	bin/run_test_suite_with_coverage
 
 cs-fix:
-	bin/php-cs-fixer fix --verbose
+	bin/fix_code_standards
+
+dep-install:
+	composer install
+
+dep-update:
+	composer update
+
+run:
+	bin/run
 
 test:
-	bin/phpunit
-	bin/humbug
-
-test-debug:
-	php -dzend_extension=xdebug.so bin/phpunit
-
-test-acceptance:
-	bin/phpunit --testsuite acceptance
-
-test-functional:
-	bin/phpunit --testsuite functional
-
-test-humbug:
-	bin/humbug
-
-test-integration:
-	bin/phpunit --testsuite integration
-
-test-unit:
-	bin/phpunit --testsuite unit
+	bin/fix_code_standards --dry-run
+	bin/run_test_suite
+#	bin/humbug

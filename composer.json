@@ -20,13 +20,17 @@
         }
     },
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.1",
+        "roave/security-advisories": "dev-master"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.0",
-        "humbug/humbug": "^1.0@alpha",
-        "phpunit/phpunit": "~5",
-        "phpunit/php-code-coverage": "~3"
+//        "humbug/humbug": "^1.0@alpha",
+        "mockery/mockery": "v1.0.0-alpha1",
+        "phpunit/dbunit": "^3.0",
+        "phpunit/php-code-coverage": "^5",
+        "phpunit/php-invoker": "^1.1",
+        "phpunit/phpunit": "^6.0"
     },
     "suggest": {
     },
@@ -36,7 +40,8 @@
         }
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "vendor/bin",
+        "preferred-install": "dist"
     },
     "scripts": {
         "post-install-cmd": [],

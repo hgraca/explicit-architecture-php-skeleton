@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+$rootDir = __DIR__ . '/..';
+$returnVal = 0;
+
+$env = getenv('ENV') ?: 'dev';
+
+$command = 'php vendor/bin/simple-phpunit';
+switch ($env) {
+    case 'dev':
+        system(
+            "docker-compose -f $rootDir/storage/container/docker-compose.yml run --rm app " . $command,
+            $returnVal
+        );
+        system("docker-compose -f $rootDir/storage/container/docker-compose.yml down");
+        break;
+    default:
+        system($command, $returnVal);
+}
+
+exit($returnVal);

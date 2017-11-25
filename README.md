@@ -29,37 +29,34 @@ composer require hgraca/lib-name
 
 Add additional notes about how to deploy this on a live system
 
-## Tests
+## Available commands
 
-To run the tests run:
+```bash
+make run
+```
+
 ```bash
 make test
 ```
-Or just one of the following:
-```bash
-make test-acceptance
-make test-functional
-make test-integration
-make test-unit
-make test-humbug
-```
-To run the tests in debug mode run:
-```bash
-make test-debug
-```
 
-## Coverage
-
-To generate the test coverage run:
 ```bash
 make coverage
 ```
 
-## Code standards
-
-To fix the code standards run:
 ```bash
 make cs-fix
+```
+
+```bash
+make dep-install
+```
+
+```bash
+make dep-update
+```
+
+```bash
+make build-container
 ```
 
 ## Todo
