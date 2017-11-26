@@ -10,10 +10,10 @@ $command = 'php -dzend_extension=xdebug.so vendor/bin/phpunit --coverage-text --
 switch ($env) {
     case 'dev':
         system(
-            "docker-compose -f $rootDir/storage/container/$env/docker-compose.yml run --rm app " . $command,
+            "docker-compose -f $rootDir/build/container/$env/docker-compose.yml run --rm app " . $command,
             $returnVal
         );
-        system("docker-compose -f $rootDir/storage/container/$env/docker-compose.yml down");
+        system("docker-compose -f $rootDir/build/container/$env/docker-compose.yml down");
         break;
     default:
         system($command, $returnVal);

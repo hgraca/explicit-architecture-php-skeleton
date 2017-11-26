@@ -10,10 +10,10 @@ switch ($env) {
     case 'dev':
         $command = 'php bin/console server:run';
         system(
-            "docker-compose -f $rootDir/storage/container/$env/docker-compose.yml run -p 8000:8000 --rm app " . $command,
+            "docker-compose -f $rootDir/build/container/$env/docker-compose.yml run -p 8000:8000 --rm app " . $command,
             $returnVal
         );
-        system("docker-compose -f $rootDir/storage/container/$env/docker-compose.yml down");
+        system("docker-compose -f $rootDir/build/container/$env/docker-compose.yml down");
         break;
     default:
         $command = 'php bin/console server:run';
