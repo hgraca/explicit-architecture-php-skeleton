@@ -31,7 +31,7 @@ Go through the README.md and adapt to your situation
 
 - **bin** (_application binaries, the dependencies binaries should go in vendor/bin_)
 - **build** (_artifacts needed for building the application prior to running it_)
-- **config** (_all the donfug needed to run the application_)
+- **config** (_all the config needed to run the application_)
 - **docs** (_application documentation_)
 - **lib** (_libraries used by the application, which are specific to this application or not distributable (yet)_)
     - **shared-kernel** (_application and domain code shared among all bounded contexts_)
