@@ -17,15 +17,13 @@ A short description of the motivation behind the creation and maintenance of the
 
 A short explanation of how to use the project. This should explain **how** the project is usable.
 
-### Naming
+## Explicit Architecture
 
-Replace:
-
-- '\<lib-name-description\>' => A description for the library
-- lib-name => The library name
-- LibName => The library namespace
-
-Go through the README.md and adapt to your situation
+I explained [Explicit Architecture][1] in one of my blog posts, as a result of my understanding of several architectural
+ styles such as (but not limited to) EBI Architecture, DDD, Ports & Adapters Architecture, Onion Architecture 
+ and Clean Architecture.
+ 
+[![Deploy](https://docs.google.com/drawings/d/e/2PACX-1vQ5ps72uaZcEJzwnJbPhzUfEeBbN6CJ04j7hl2i3K2HHatNcsoyG2tgX2vnrN5xxDKLp5Jm5bzzmZdv/pub?w=960&amp;h=657)][2]
 
 ### Folder structure
 
@@ -92,3 +90,14 @@ make build-container-prd
 ```
 
 ## Todo
+
+Replace:
+
+- '\<lib-name-description\>' => A description for the library
+- lib-name => The library name
+- LibName => The library namespace
+
+Go through the README.md and adapt to your situation
+
+[1]: https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/
+[2]: https://docs.google.com/drawings/d/1E_hx5B4czRVFVhGJbrbPDlb_JFxJC8fYB86OMzZuAhg/edit
