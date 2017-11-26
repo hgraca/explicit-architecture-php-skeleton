@@ -67,6 +67,10 @@ make run
 
 ```bash
 make test
+make test-acc
+make test-func
+make test-int
+make test-unit
 ```
 
 ```bash
@@ -79,14 +83,12 @@ make cs-fix
 
 ```bash
 make dep-install
-```
-
-```bash
 make dep-update
 ```
 
 ```bash
-make build-container
+make build-container-dev
+make build-container-prd
 ```
 
 ## Todo
