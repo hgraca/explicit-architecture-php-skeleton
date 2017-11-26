@@ -2,18 +2,27 @@
 <?php
 
 $rootDir = __DIR__ . '/..';
+$argumentList = $argv;
+unset($argumentList[0]);
 $returnVal = 0;
 
 $env = getenv('ENV') ?: 'dev';
 
-$command = 'php vendor/bin/simple-phpunit';
+$command = 'php vendor/bin/phpunit ' . implode(' ', $argumentList);
 switch ($env) {
     case 'dev':
         system(
-            "docker-compose -f $rootDir/storage/container/docker-compose.yml run --rm app " . $command,
+            "docker-compose -f $rootDir/storage/container/$env/docker-compose.yml run --rm app " . $command,
             $returnVal
         );
-        system("docker-compose -f $rootDir/storage/container/docker-compose.yml down");
+        system("docker-compose -f $rootDir/storage/container/$env/docker-compose.yml down");
+        break;
+    case 'ci':
+        system(
+            "docker-compose -f $rootDir/storage/container/prd/docker-compose.yml run --rm app " . $command,
+            $returnVal
+        );
+        system("docker-compose -f $rootDir/storage/container/prd/docker-compose.yml down");
         break;
     default:
         system($command, $returnVal);

@@ -1,0 +1,9 @@
+version: '3.0'
+
+services:
+  app:
+    container_name: app
+    working_dir: /opt/app
+    build:
+      context: ./
+      dockerfile: ./app.dockerfile

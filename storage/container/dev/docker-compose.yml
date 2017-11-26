@@ -3,7 +3,7 @@ version: '3.0'
 services:
   app:
     container_name: app
-    image: "hgraca/lib-name:app.php_7_1"
+    image: "hgraca/lib-name:app.dev.php_7_1"
     working_dir: /opt/app
     volumes:
-      - ../../:/opt/app
+      - ../../../:/opt/app

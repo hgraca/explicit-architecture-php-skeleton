@@ -1,17 +1,32 @@
 build:
-    environment:
-        php:
-            version: 7.0.8
-            ini:
-                'date.timezone': 'Europe/Amsterdam'
-    tests:
-        override:
-            -
-                command: make coverage
-                coverage:
-                    file: coverage.clover.xml
-                    format: php-clover
-checks:
+
+  environment:
+    variables:
+      ENV: 'ci'
+    mysql: false
+    postgresql: false
+    redis: false
+    rabbitmq: false
     php:
-        code_rating: true
-        duplication: true
+      version: 7.1
+      ini:
+        'date.timezone': 'Europe/Amsterdam'
+
+  tests:
+    override:
+      -
+        command: make coverage
+        coverage:
+          file: coverage.clover.xml
+          format: php-clover
+
+filter:
+  paths:
+    - "src/"
+  dependency_paths:
+    - "vendor/"
+
+build_failure_conditions:
+  - 'issues.new.exists'
+  - 'project.metric_change("scrutinizer.test_coverage", < -0.05)'
+
