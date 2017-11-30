@@ -1,4 +1,4 @@
-version: '3.0'
+version: '3.2'
 
 services:
   app:
@@ -6,4 +6,4 @@ services:
     working_dir: /opt/app
     build:
       context: ../../../
-      dockerfile: ./storage/container/prd/app.dockerfile
+      dockerfile: ./storage/container/ci/app.dockerfile

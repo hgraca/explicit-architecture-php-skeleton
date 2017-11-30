@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+
+$rootDir = __DIR__ . '/..';
+$returnVal = 0;
+
+$env = getenv('ENV') ?: 'dev';
+$coverageReportPath = 'var/coverage.clover.xml';
+$command = "php -dzend_extension=xdebug.so vendor/bin/phpunit --coverage-text --coverage-clover=$coverageReportPath";
+switch ($env) {
+    case 'ci':
+        // Scrutinizer requires remote containers to be able to use more than one container,
+        // and for this we can not use a shared volume. So we need to create a container with all the code and
+        // dependencies inside, and after the tests run we need to copy the coverage report to a local path.
+        system("docker-compose -f $rootDir/build/container/$env/docker-compose.yml run app " . $command, $returnVal);
+        copyCoverageReportToLocalPath($coverageReportPath);
+        system("docker-compose -f $rootDir/build/container/$env/docker-compose.yml down");
+        break;
+    case 'dev':
+        system("docker-compose -f $rootDir/build/container/$env/docker-compose.yml run app " . $command, $returnVal);
+        system("docker-compose -f $rootDir/build/container/$env/docker-compose.yml down");
+        break;
+    default:
+        system($command, $returnVal);
+}
+
+exit($returnVal);
+
+function copyCoverageReportToLocalPath(string $coverageReportPath): void
+{
+    $hostBuildPath = '/home/scrutinizer/build';
+    $guestBuildPath = '/opt/app';
+    $output = [];
+    exec("docker ps -a | head -2 | tail -1 | awk '{print $1}'", $output);
+    $lastContainerId = $output[0];
+    system("docker commit $lastContainerId build-container");
+    system("docker run build-container cat $guestBuildPath/$coverageReportPath > $hostBuildPath/$coverageReportPath");
+}

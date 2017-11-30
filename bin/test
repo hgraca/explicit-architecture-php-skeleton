@@ -5,14 +5,11 @@ $rootDir = __DIR__ . '/..';
 $returnVal = 0;
 
 $env = getenv('ENV') ?: 'dev';
-
-$command = 'php -dzend_extension=xdebug.so vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover.xml';
+$command = 'php vendor/bin/phpunit';
 switch ($env) {
+    case 'ci':
     case 'dev':
-        system(
-            "docker-compose -f $rootDir/build/container/$env/docker-compose.yml run --rm app " . $command,
-            $returnVal
-        );
+        system("docker-compose -f $rootDir/build/container/$env/docker-compose.yml run app " . $command, $returnVal);
         system("docker-compose -f $rootDir/build/container/$env/docker-compose.yml down");
         break;
     default:

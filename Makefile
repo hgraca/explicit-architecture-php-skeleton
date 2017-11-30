@@ -17,11 +17,11 @@ build-container-prd:
 	docker push hgraca/lib-name:app.php_7_1
 
 coverage:
+	bin/coverage
 	bin/fix_code_standards --dry-run
-	bin/run_test_suite_with_coverage
 
 cs-fix:
-	bin/fix_code_standards
+	bin/fix_cs
 
 dep-install:
 	composer install
@@ -33,22 +33,22 @@ run:
 	bin/run
 
 test:
-	bin/fix_code_standards --dry-run
-	bin/run_test_suite
+	bin/test
 #	bin/humbug
+	bin/fix_cs --dry-run
 
 test-acc:
-	bin/fix_code_standards --dry-run
-	bin/run_test_suite --testsuite acceptance
+	bin/test --testsuite acceptance
+	bin/fix_cs --dry-run
 
 test-func:
-	bin/fix_code_standards --dry-run
-	bin/run_test_suite --testsuite functional
+	bin/test --testsuite functional
+	bin/fix_cs --dry-run
 
 test-int:
-	bin/fix_code_standards --dry-run
-	bin/run_test_suite --testsuite integration
+	bin/test --testsuite integration
+	bin/fix_cs --dry-run
 
 test-unit:
-	bin/fix_code_standards --dry-run
-	bin/run_test_suite --testsuite unit
+	bin/test --testsuite unit
+	bin/fix_cs --dry-run

@@ -12,3 +12,5 @@ RUN apk --update add --no-cache --virtual .ext-deps autoconf g++ make zlib-dev c
     pecl install xdebug && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
     rm -rf /var/cache/apk/*
+
+COPY . /opt/app

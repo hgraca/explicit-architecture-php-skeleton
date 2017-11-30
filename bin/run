@@ -5,19 +5,12 @@ $rootDir = __DIR__ . '/..';
 $returnVal = 0;
 
 $env = getenv('ENV') ?: 'dev';
-
 switch ($env) {
     case 'dev':
-        $command = 'php bin/console server:run';
-        system(
-            "docker-compose -f $rootDir/build/container/$env/docker-compose.yml run -p 8000:8000 --rm app " . $command,
-            $returnVal
-        );
-        system("docker-compose -f $rootDir/build/container/$env/docker-compose.yml down");
+        system("docker-compose -f $rootDir/build/container/$env/docker-compose.yml run", $returnVal);
         break;
     default:
-        $command = 'php bin/console server:run';
-        system($command, $returnVal);
+        system("docker-compose -f $rootDir/build/container/prd/docker-compose.yml run", $returnVal);
 }
 
 exit($returnVal);

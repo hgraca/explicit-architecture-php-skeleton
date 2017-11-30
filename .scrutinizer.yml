@@ -11,6 +11,7 @@ build:
       version: 7.1
       ini:
         'date.timezone': 'Europe/Amsterdam'
+    docker: true
 
   tests:
     override:
@@ -30,3 +31,7 @@ build_failure_conditions:
   - 'issues.new.exists'
   - 'project.metric_change("scrutinizer.test_coverage", < -0.05)'
 
+checks:
+  php:
+    code_rating: true
+    duplication: true
