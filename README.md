@@ -30,6 +30,10 @@ I explained [Explicit Architecture][1] in one of my blog posts, as a result of m
  
 [![Explicit Architecture](https://docs.google.com/drawings/d/e/2PACX-1vQ5ps72uaZcEJzwnJbPhzUfEeBbN6CJ04j7hl2i3K2HHatNcsoyG2tgX2vnrN5xxDKLp5Jm5bzzmZdv/pub?w=960&amp;h=657)][2]
 
+#### Package by component
+
+[![Package by component](https://docs.google.com/drawings/d/e/2PACX-1vQjEj4dKKUaQEUcNDq2UO58oIUu6pehqrE99q4gSRk0DY9KPIuhgG9Yg3qJGgW4ybrL5Ql8_Xo5z3yq/pub?w=960&h=720)][17]
+
 #### Dependencies directions
 
 [![Dependencies](https://docs.google.com/drawings/d/e/2PACX-1vQyv5xAx5hFJPhiK19AGl_2t256M0yKcDSliH8etojltE3tBlEnCndwfsUr1UsXvv5PKGVtrBHkQX3h/pub?w=913&amp;h=129)][16]
@@ -50,11 +54,9 @@ I explained [Explicit Architecture][1] in one of my blog posts, as a result of m
 - **src**
     - **[Core][10]** (_the application core_)
         - **[Component][5]** (_the application components/bounded contexts_)
-            - **[CoreDomain][3]** (_the application components that are part of the core domain_)
-            - **[GenericSubdomain][4]** (_the application components that are generic sub-domains_)
         - **[Port][8]** (_the ports, to be implemented by the infrastructure adapters_)
     - **[Infrastructure][9]** (_the port adapters for the infrastructure tools_)
-    - **[UI][7]** (_the user facing applications, controllers, views and related code units_)
+    - **[Presentation][7]** (_the presentation layer with the several user facing applications, controllers, views and related code units_)
 - **tests** (_unit, integration, functional, acceptance tests_)
     - **build** (_artifacts needed for running the application tests, like a test DB template_)
 - **var** (_volatile artifacts like logs, cache, temporary test databases, generated code, ..._)
@@ -126,8 +128,6 @@ make build-container-prd
 
 [1]: https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/
 [2]: https://docs.google.com/drawings/d/1E_hx5B4czRVFVhGJbrbPDlb_JFxJC8fYB86OMzZuAhg/edit?usp=sharing
-[3]: http://ddd.fed.wiki.org/view/welcome-visitors/view/domain-driven-design/view/core-domain
-[4]: http://ddd.fed.wiki.org/view/welcome-visitors/view/domain-driven-design/view/generic-subdomains
 [5]: http://ddd.fed.wiki.org/view/welcome-visitors/view/domain-driven-design/view/bounded-context
 [6]: http://ddd.fed.wiki.org/view/welcome-visitors/view/domain-driven-design/view/shared-kernel
 [7]: https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/#primary-or-driving-adapters
@@ -140,3 +140,4 @@ make build-container-prd
 [14]: https://herbertograca.com/2017/09/21/onion-architecture/
 [15]: https://herbertograca.com/2017/09/28/clean-architecture-standing-on-the-shoulders-of-giants/
 [16]: https://docs.google.com/drawings/d/1DGiP9qyBpRHPDPKRJoXdElw1DXwmJoR-88Qvtf6hBNA/edit?usp=sharing
+[17]: https://docs.google.com/drawings/d/1QurViCcaZ4Eh1CgBvel9aK5RLBkw2TaOAnO-Lhu4pfw/edit?usp=sharing
